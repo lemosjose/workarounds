@@ -1,0 +1,3 @@
+== workarounds
+
+These are not good programs, neither necessarily useful software. They surely need refactoring and maybe even rewriting, but they are workarounds that did solve me specific problems and i wanted to save them somewhere.
