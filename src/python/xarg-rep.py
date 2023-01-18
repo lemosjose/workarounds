@@ -2,39 +2,47 @@ import typing
 import sys 
 # curl replacement for this workaround 
 import os
-import re
 import urllib.request 
 #Not going to use os.fencode when calling sys.argv since this is not a *nix solution, but instead the replacement of a *nix tool for windows system
-
-
+#future GUI for windows
+#from PySide6 import QtCore, QtWidgets, QtGui
 #error handling 
+import re 
 
-def OpenFile(file) -> list:
+#make a pre-definition of the array
+downloadLinks = []
+
+def OpenFile(file):
     if not os.path.isfile(file) or not os.path.exists(file):
         print("the file is not a file or it does not exist at all")
         raise SystemExit()
-    with open(file) as f:
-        content = f.readlines()
-        return content 
+    with open(file, "r") as f:
+        for link in f.readlines():
+            downloadLinks.append(link.rstrip())
 
+
+def GetFileName(url: str):
+    Filename = re.search('[^/]+$', url)
+    return Filename.group(0)
 
 
 def main(file) -> None:
     content = OpenFile(file)
-    for TargetContent in content:
+    for TargetContent in downloadLinks:
+        filename = GetFileName(str(TargetContent))
         file = urllib.request.urlopen(TargetContent) 
-    #exception handling to take possible error in HTTP request for a URL provided in the file
-            
-        #if ():
-         #   open(unquote()
-        final_file = open(os.path.basename(TargetContent), 'xb')
-        final_file.write(file.read())
-        final_file.close()
+        fsFile = open(str(filename), 'xb')
+        fsFile.write(file.read())
+        fsFile.close()
 
-
+if len(sys.argv) <= 1:
+    print("no file passed")
+    raise SystemExit()
+    
 Target = str(sys.argv[1])
 
-main(Target)
+for i in sys.argv:
+    main(Target)
     
             
 

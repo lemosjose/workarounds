@@ -1,3 +1,0 @@
-= Workarounds
-
-These are surely `not` good code. they were made in situations of near dispair. Some can still be modified and turned into decent software, i don't know. But use or modify them at your will. 

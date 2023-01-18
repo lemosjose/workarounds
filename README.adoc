@@ -1,3 +1,13 @@
 == workarounds
 
 These are not good programs, neither necessarily useful software. They surely need refactoring and maybe even rewriting, but they are workarounds that did solve me specific problems and i wanted to save them somewhere.
+
+
+== On xarg-rep
+
+xarg-rep it's a replacement for windows users, a simple script to download multiple files contained in a text file '
+
+
+== On reference.sh
+
+That's the most tricky one. Antora-made content does not work well for PDF and epub files, internal references need changes and this script corrects the references from files made aimed at a antora deploy. 

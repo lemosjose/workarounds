@@ -1,2 +1,4 @@
-/.circleci
-
+/.circleci\
+*.epub
+*.pdf
+requirements.txt
