@@ -26,8 +26,7 @@ def GetFileName(url: str):
     return Filename.group(0)
 
 
-def main(file) -> None:
-    content = OpenFile(file)
+def main() -> None:
     for TargetContent in downloadLinks:
         filename = GetFileName(str(TargetContent))
         file = urllib.request.urlopen(TargetContent) 
@@ -41,8 +40,13 @@ if len(sys.argv) <= 1:
     
 Target = str(sys.argv[1])
 
+sys.argv.remove(sys.argv[0])
+
 for i in sys.argv:
-    main(Target)
+    
+    OpenFile(i)
+
+main()
     
             
 
